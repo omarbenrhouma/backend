@@ -13,8 +13,9 @@ app.use('/users', userRoutes);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-const server = app.listen(config.port, () => {
-  console.log(`Server listening on port ${config.port}`);
+const port = process.env.PORT || 80; // Utilisez le port 80 ou utilisez le port spécifié par l'environnement
+const server = app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
 
 module.exports = server
